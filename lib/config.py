@@ -1,21 +1,22 @@
 import os
 from datetime import datetime, timedelta, date
 
-__all__ = ['SUPPORT',
-           'FixedMapperURL',
-           'BRAMapperURL',
-           'USAMapperURL',
-           'ARGMapperURL',
-           'SE_ASIA_MapperURL',
-           'Global_MapperURL']
+__all__ = ["SUPPORT",
+           "VHIMapper",
+           "FixedMapperURL",
+           "BRAMapperURL",
+           "USAMapperURL",
+           "ARGMapperURL",
+           "SE_ASIA_MapperURL",
+           "Global_MapperURL"]
 
 
 class SUPPORT:
 
     project_path = "C:/Users/be_be/Desktop/Weather Update"
     picture_path = os.path.join(project_path, "pic")
-    report_path = os.path.join(project_path, "cover")
-
+    report_path = os.path.join(project_path, "report")
+    data_path = os.path.join(project_path, "data")
     now_datetime = datetime.now()
     yesterday_now_datetime = datetime.now() - timedelta(days=1)
 
@@ -35,6 +36,16 @@ class SUPPORT:
     today_pic_path = os.path.join(picture_path, today_str)
 
     ag_weather_date_num = (datetime.now().date() - date(2012, 7, 27)).days
+
+
+class VHIMapper:
+    crop = {"大豆": "SOYB"}
+    country = {"巴西": "BRA",
+               "美国": "USA",
+               "阿根廷": "ARG"}
+    province_id_max = {"巴西": 27,
+                       "美国": 51,
+                       "阿根廷": 24}
 
 
 class FixedMapperURL:
@@ -61,7 +72,10 @@ class FixedMapperURL:
                 "G_美国季度干旱展望": "https://www.cpc.ncep.noaa.gov/products/expert_assessment/season_drought.png",
                 "N_美国近月天气展望": "https://www.cpc.ncep.noaa.gov/products/predictions/multi_season/13_seasonal_outlooks/color/page2.gif",
                 "O_美国远月气温展望": "https://www.cpc.ncep.noaa.gov/products/predictions/multi_season/13_seasonal_outlooks/color/t.gif",
-                "P_美国远月降水展望": "https://www.cpc.ncep.noaa.gov/products/predictions/multi_season/13_seasonal_outlooks/color/p.gif"}
+                "P_美国远月降水展望": "https://www.cpc.ncep.noaa.gov/products/predictions/multi_season/13_seasonal_outlooks/color/p.gif",
+
+                "Q_美国过去一周SPI指数": "https://data.chc.ucsb.edu/products/CHIRPS-2.0/moving_01pentad/pngs/northern_latin_america/SPI_01PentAccum_Current.png",
+                "R_美国月SPI指数含预测": "https://data.chc.ucsb.edu/products/CHIRPS-2.0+Forecasts/moving_05pentad/pngs/northern_latin_america/SPI_05PentAccum_Current.png"}
 
     ARG_urls = {"阿根廷过去一周累计降水": "https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/regional_monitoring/wcpcp8.png",
                 "阿根廷过去一周温度异常": "https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/regional_monitoring/wctan8.png",
@@ -73,7 +87,9 @@ class FixedMapperURL:
                 "阿根廷8-14D累计降水异常": "https://www.cpc.ncep.noaa.gov/products/JAWF_Monitoring/GFS/AR_curr.p.gfs2b.gif",
                 }
 
-    BRA_urls = {"巴西过去一周累计降水": "https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/regional_monitoring/wcpcp15.png",
+    BRA_urls = {"南美过去一周SPI指数": "https://data.chc.ucsb.edu/products/CHIRPS-2.0/moving_01pentad/pngs/south_america/SPI_01PentAccum_Current.png",
+                "南美月SPI指数含预测": "https://data.chc.ucsb.edu/products/CHIRPS-2.0+Forecasts/moving_05pentad/pngs/south_america/SPI_05PentAccum_Current.png",
+                "巴西过去一周累计降水": "https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/regional_monitoring/wcpcp15.png",
                 "巴西过去一周温度异常": "https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/regional_monitoring/wctan15.png",
                 "巴西最近一月累计降水": "https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/regional_monitoring/1cpnp15.png",
                 "巴西最近一月温度异常": "https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/regional_monitoring/1ctan15.png",
@@ -83,7 +99,9 @@ class FixedMapperURL:
                 "巴西8-14D累计降水异常": "https://www.cpc.ncep.noaa.gov/products/JAWF_Monitoring/GFS/BR_curr.p.gfs2b.gif",
                 }
 
-    SE_AISA_urls = {"东南亚过去一周累计降水": "https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/regional_monitoring/wcpcp5.png",
+    SE_AISA_urls = {"东南亚过去一周SPI指数": "https://data.chc.ucsb.edu/products/CHIRPS-2.0/moving_01pentad/pngs/asia_southeast/SPI_01PentAccum_Current.png",
+                    "东南亚月SPI指数含预测": "https://data.chc.ucsb.edu/products/CHIRPS-2.0+Forecasts/moving_05pentad/pngs/asia_southeast/SPI_05PentAccum_Current.png",
+                    "东南亚过去一周累计降水": "https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/regional_monitoring/wcpcp5.png",
                     "东南亚过去一周温度异常": "https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/regional_monitoring/wctan5.png",
                     "东南亚最近一月累计降水": "https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/regional_monitoring/1cpcp5.png",
                     "东南亚最近一月温度异常": "https://www.cpc.ncep.noaa.gov/products/analysis_monitoring/regional_monitoring/1ctan5.png",

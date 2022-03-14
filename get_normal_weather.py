@@ -57,4 +57,5 @@ def get_weather_pdf(country):
 
 if __name__ == '__main__':
     get_weather_pdf('巴西')
-    # get_weather_pdf('阿根廷')
+    get_weather_pdf('阿根廷')
+    get_weather_pdf('美国')

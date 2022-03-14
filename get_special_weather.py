@@ -134,5 +134,5 @@ def get_global_weather_pdf():
 
 
 if __name__ == '__main__':
-    # get_southeast_asia_weather_pdf()
+    get_southeast_asia_weather_pdf()
     get_global_weather_pdf()

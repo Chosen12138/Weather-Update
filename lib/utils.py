@@ -17,6 +17,8 @@ def make_paths():
     if not os.path.exists(SUPPORT.today_pic_path):
         os.mkdir(SUPPORT.today_pic_path)
 
+    if not os.path.exists(SUPPORT.data_path):
+        os.mkdir(SUPPORT.data_path)
     return
 
 
